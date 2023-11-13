@@ -6,7 +6,8 @@ class Custombutton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
-    this.iconsize=30,this.textsize =18
+    this.iconsize=30,this.textsize =18,
+    
   });
 final IconData icon;
 final String title;

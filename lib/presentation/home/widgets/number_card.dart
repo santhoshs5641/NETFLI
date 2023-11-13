@@ -3,50 +3,54 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/domain/model/movie.dart';
 
-class numbercard extends StatelessWidget {
-  const numbercard({super.key,required this.index});
-final int index;
+class NumberCard extends StatelessWidget {
+  const NumberCard({super.key, required this.index, required this.movie});
+  final int index;
+  final Movie movie;
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children:[
-         Row(
-        children: [
-         const  
-         SizedBox(width: 40,height: 200,),
-          Container(
-            width: 150, 
-            height: 200,
-            
-            decoration:  BoxDecoration(
-              borderRadius: kradius10,
-              image:const  DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iwsMu0ehRPbtaSxqiaUDQB9qMWT.jpg",
+      children: [
+        Row(
+          children: [
+            const SizedBox(
+              width: 40,
+              height: 200,
+            ),
+            Container(
+              width: 130,
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: kradius10,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage("$imagePath${movie.posterPath}"),
+                ),
               ),
+            ),
+          ],
+        ),
+        Positioned(
+          left: 13,
+          bottom: -30,
+          child: BorderedText(
+            strokeWidth: 10.0,
+            strokeColor: kwhitecolors,
+            child: Text(
+              "${index + 1}",
+              style: const TextStyle(
+                fontSize: 140,
+                color: kBlackColors,
+                fontWeight: FontWeight.bold,
+                decoration: TextDecoration.none,
+                decorationColor: Colors.black,
               ),
             ),
           ),
-        ],
-      ),
-      Positioned(
-        left: 13,
-        bottom: -30,
-        child: BorderedText(
-          strokeWidth: 10,
-          strokeColor: kwhitecolors,
-          child: Text("${index + 1}",
-          style: TextStyle(
-            color: kBlackColors,
-            decoration:TextDecoration.none,
-            fontWeight: FontWeight.bold,
-            decorationColor: Colors.black,
-            fontSize: 140),),
-        ),
-      )
-      ]
+        )
+      ],
     );
   }
 }

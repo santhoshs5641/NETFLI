@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class SearchTextTitle extends StatelessWidget {
-  final String title;
+  final String text;
    SearchTextTitle({
     super.key,
-    required this.title
+    required this.text
   });
 
   @override
   Widget build(BuildContext context) {
-    return Text(title,
+    return Text(text,
                    style: const TextStyle(
      fontSize: 22,
      fontWeight: FontWeight.bold,
